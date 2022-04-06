@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/room-homepage/static/css/main.46e22717.css",
-    "main.js": "/room-homepage/static/js/main.3f04754a.js",
+    "main.js": "/room-homepage/static/js/main.35213d0d.js",
     "static/js/787.accb9253.chunk.js": "/room-homepage/static/js/787.accb9253.chunk.js",
     "static/media/desktop-image-hero-1.jpg": "/room-homepage/static/media/desktop-image-hero-1.91901d0d47ea68db9434.jpg",
     "static/media/desktop-image-hero-3.jpg": "/room-homepage/static/media/desktop-image-hero-3.05fd679aa0d31e01c176.jpg",
@@ -18,11 +18,11 @@
     "static/media/icon-angle-left.svg": "/room-homepage/static/media/icon-angle-left.d53877dfd9c6774a68749ad0239b4ce1.svg",
     "static/media/icon-angle-right.svg": "/room-homepage/static/media/icon-angle-right.0ed3f81fbd14b3bd61d875b7df144e4c.svg",
     "main.46e22717.css.map": "/room-homepage/static/css/main.46e22717.css.map",
-    "main.3f04754a.js.map": "/room-homepage/static/js/main.3f04754a.js.map",
+    "main.35213d0d.js.map": "/room-homepage/static/js/main.35213d0d.js.map",
     "787.accb9253.chunk.js.map": "/room-homepage/static/js/787.accb9253.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.46e22717.css",
-    "static/js/main.3f04754a.js"
+    "static/js/main.35213d0d.js"
   ]
 }
