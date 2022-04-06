@@ -5,21 +5,41 @@ import arrow from './images/icon-arrow.svg';
 import angleLeft from './images/icon-angle-left.svg';
 import angleRight from './images/icon-angle-right.svg';
 import imgAboutDark from './images/image-about-dark.jpg';
-import imgAboutLight from './images/image-about-light.jpg';
 import hamburger from './images/icon-hamburger.svg';
-
+import imgAboutLight from './images/image-about-light.jpg';
+import cross from './images/icon-close.svg'
 
 function App() {
   const [slide, setSlide] = useState(1);
   const [isOpen, setIsOpen] = useState(false);
+  const [isDekstopWidth,setIsDesktopWidth] = useState(false)
+  const [isMediumWidth,setIsMediumWidth] = useState(false)
 
   useEffect(() => {
     const interval = setInterval(() => {
       handleAngleRight();
-    }, 5000);
+    }, 20000);
     return () => clearInterval(interval);
 
   }, [slide]);
+
+  useEffect(()=>{
+    if(window.innerWidth < 1280){ 
+      setIsDesktopWidth(false)
+    }
+    else{
+      setIsDesktopWidth(true)
+    }
+  },[window.innerWidth])
+
+  useEffect(()=>{
+    if(window.innerWidth < 768){ 
+      setIsMediumWidth(false)
+    }
+    else{
+      setIsMediumWidth(true)
+    }
+  },[window.innerWidth])
 
   function renderHeroHeader(){
     if(slide === 1 ){
@@ -67,55 +87,89 @@ function App() {
    setIsOpen(!isOpen)
   }
 
+  const images = (isDekstopWidth) ? 'desktop': 'mobile'
+
   return (
-    <main className='font-main'>
-      <section className='flex h-[40%] xl:flex-row flex-col transition-all duration-1000'>
-        <div className='relative w-full xl:w-[55%] h-full'>
-            <img src={require(`./images/desktop-image-hero-${slide}.jpg`)} className="w-full"></img>
-            <img src={hamburger} onClick={handleNavbar} alt="icon" className='absolute top-10 left-10 lg:hidden'/>
-            <div className='md:absolute top-10  left-10'>
-              <img src={logo} className="h-6 w-20 mr-8 left-[50%]" alt="logo"></img>
-              <nav className={`flex p-16 lg:p-0 left-0 right-0 top-0 z-10 bg-white lg:bg-transparent lg:text-white gap-8 ${isOpen ? 'block' : 'hidden'}`} >
-                <a href="#">Home</a>
-                <a href="#">Shop</a>
-                <a href="#">About</a>
-                <a href="#">Contact</a>
+    <main className="font-main">
+          <section className="flex h-[40%] xl:flex-row flex-col transition-all duration-1000">
+        <div className="relative w-full xl:w-[55%] h-full">
+          <img src={require(`./images/${images}-image-hero-${slide}.jpg`)} className="w-full"></img>
+            { isMediumWidth &&
+              <nav className="flex absolute top-10 left-10 text-white gap-8 ">
+              <img src={logo} className="h-6 w-20 mr-8" alt="logo"></img>
+              <a href="#" className='hover:border-b pb-1 border-white transition-all'>Home</a>
+              <a href="#" className='hover:border-b pb-1 border-white transition-all'>Shop</a>
+              <a href="#" className='hover:border-b pb-1 border-white transition-all'>About</a>
+              <a href="#" className='hover:border-b pb-1 border-white transition-all'>Contact</a>
+            </nav>}
+            { !isMediumWidth &&
+              
+              <nav className='absolute w-screen right-0 left-0 top-0'>
+                {
+                  !isOpen &&
+                <img src={hamburger} className="left-10 top-10 absolute" onClick={handleNavbar}></img> 
+                }
+                {
+                  !isOpen &&
+                <img src={logo} alt="brand logo" className='absolute top-10 right-0 left-0 mx-auto sm:w-20 sm:h-6'/>
+                }
+                <div className={`text-black font-semibold w-screen bg-white py-8
+                justify-evenly ${isOpen ? 'flex' : 'hidden'}`}>
+                  <img src={cross} alt="" className='h-5 w-6' onClick={handleNavbar}/>
+                  <div className='flex gap-4'>
+                    <a href='#' className='inline-block'>Home</a>
+                    <a href='#' className='inline-block'>Shop</a>
+                    <a href='#' className='inline-block'>About</a>
+                    <a href='#' className='inline-block'>Contact</a>
+                  </div>
+                </div>
               </nav>
-            </div>
-        </div>
-        <div className='xl:w-[45%] w-full flex justify-center relative md:m-0 py-24 px-8 xl:p-20'>
-          <div className='flex flex-col justify-center'>
-            <h2 className='text-3xl lg:text-4xl max-w-lg font-semibold'>{renderHeroHeader()}</h2>
-            <p className='text-very-dark-gray max-w-lg text-sm my-6 lg:my-4'>{renderHeroText()}</p>
-            <div className='inline-block group'>             
-              <a href='#' className='spacing-super-wide inline-block mr-8 group-hover:opacity-75'>Shop Now</a>
-              <img src={arrow} alt="arrow" className='h-5 selection:hidden w-20 inline-block group-hover:opacity-75 group-hover:translate-x-6 duration-500 self-start ease-out'></img>
+            }
+      </div>
+        <div className="xl:w-[45%] w-full flex justify-center relative md:m-0 py-24 px-8 xl:p-20">
+          <div className="flex flex-col justify-center">
+            <h2 className="text-3xl lg:text-4xl max-w-lg font-semibold">
+              {renderHeroHeader()}
+            </h2>
+            <p className="text-very-dark-gray max-w-lg text-sm my-6 lg:my-4">
+              {renderHeroText()}
+            </p>
+            <div className="inline-block group">
+              <a href="#" className="spacing-super-wide inline-block mr-8 group-hover:opacity-75">
+                Shop Now
+              </a>
+              <img src={arrow} alt="arrow" className="h-5 selection:hidden w-20 inline-block group-hover:opacity-75 group-hover:translate-x-6 duration-500 self-start ease-out"></img>
             </div>
           </div>
-          <div className='flex justify-start items-end absolute right-0 -top-[5.5rem] xl:bottom-0 xl:left-0'>
-            <div onClick={handleAngleLeft} className='bg-black w-16 h-16 selection:hidden flex items-center justify-center hover:opacity-80'>
-              <img src={angleLeft} alt="angle left icon" className=''/>
+          <div className="flex justify-start items-end absolute right-0 -top-16 xl:bottom-0 xl:left-0">
+            <div onClick={handleAngleLeft} className="bg-black w-16 h-16 selection:hidden flex items-center justify-center hover:opacity-80">
+              <img src={angleLeft} alt="angle left icon" className="" />
             </div>
-            <div onClick={handleAngleRight} className='bg-black w-16 h-16 selection:hidden flex items-center justify-center hover:opacity-80'>
-              <img src={angleRight} alt="angle right icon" className=''/>
+            <div onClick={handleAngleRight} className="bg-black w-16 h-16 selection:hidden flex items-center justify-center hover:opacity-80">
+              <img src={angleRight} alt="angle right icon" className="" />
             </div>
           </div>
         </div>
       </section>
-      <section className='flex xl:flex-row flex-col'>
-        <img src={imgAboutDark} alt="background img" className='xl:w-[33%]'/>
-        <div className='flex items-center justify-center py-24 px-12 xl:p-20'>
-          <div className='flex flex-col'>
-            <h3 className=' mb-2 text-base font-semibold '>About our furniture</h3>
-            <p className='text-very-dark-gray text-sm max-w-xl'>
-              Our multifunctional collection blends design and function to suit your individual taste.
-              Make each room unique, or pick a cohesive theme that best express your interests and what
-              inspires you. Find the furniture pieces you need, from traditional to contemporary styles
-              or anything in between. Product specialists are available to help you create your dream space.
+    
+      <section className="flex xl:flex-row flex-col">
+        <img src={imgAboutDark} alt="background img" className="xl:w-1/3" />
+        <div className="flex items-center justify-center py-24 px-12 xl:p-20 xl:w-1/3">
+          <div className="flex flex-col">
+            <h3 className=" mb-2 text-base font-semibold ">
+              About our furniture
+            </h3>
+            <p className="text-very-dark-gray text-sm max-w-xl">
+              Our multifunctional collection blends design and function to suit
+              your individual taste. Make each room unique, or pick a cohesive
+              theme that best express your interests and what inspires you. Find
+              the furniture pieces you need, from traditional to contemporary
+              styles or anything in between. Product specialists are available
+              to help you create your dream space.
             </p>
           </div>
         </div>
-        <img src={imgAboutLight} alt="background img" className='xl:w-33%'/>
+        <img src={imgAboutLight} alt="background img" className="xl:w-1/3" />
       </section>
     </main>
   );
