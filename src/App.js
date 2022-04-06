@@ -93,10 +93,10 @@ function App() {
     <main className="font-main">
           <section className="flex h-[40%] xl:flex-row flex-col transition-all duration-1000">
         <div className="relative w-full xl:w-[55%] h-full">
-          <img src={require(`./images/${images}-image-hero-${slide}.jpg`)} className="w-full"></img>
+          <img src={require(`./images/${images}-image-hero-${slide}.jpg`)} alt="slide-img" className="w-full"></img>
             { isMediumWidth &&
               <nav className="flex absolute top-10 left-10 text-white gap-8 ">
-              <img src={logo} className="h-6 w-20 mr-8" alt="logo"></img>
+              <img src={logo} className="mr-8" alt="logo"></img>
               <a href="#" className='hover:border-b pb-1 border-white transition-all'>Home</a>
               <a href="#" className='hover:border-b pb-1 border-white transition-all'>Shop</a>
               <a href="#" className='hover:border-b pb-1 border-white transition-all'>About</a>
@@ -111,11 +111,11 @@ function App() {
                 }
                 {
                   !isOpen &&
-                <img src={logo} alt="brand logo" className='absolute top-10 right-0 left-0 mx-auto sm:w-20 sm:h-6'/>
+                <img src={logo} alt="brand logo" className='absolute top-10 right-0 left-0 mx-auto'/>
                 }
                 <div className={`text-black font-semibold w-screen bg-white py-8
                 justify-evenly ${isOpen ? 'flex' : 'hidden'}`}>
-                  <img src={cross} alt="" className='h-5 w-6' onClick={handleNavbar}/>
+                  <img src={cross} alt="hamburger icon" className='h-5 w-6' onClick={handleNavbar}/>
                   <div className='flex gap-4'>
                     <a href='#' className='inline-block'>Home</a>
                     <a href='#' className='inline-block'>Shop</a>
@@ -128,9 +128,9 @@ function App() {
       </div>
         <div className="xl:w-[45%] w-full flex justify-center relative md:m-0 py-24 px-8 xl:p-20">
           <div className="flex flex-col justify-center">
-            <h2 className="text-3xl lg:text-4xl max-w-lg font-semibold">
+            <h1 className="text-3xl lg:text-4xl max-w-lg font-semibold">
               {renderHeroHeader()}
-            </h2>
+            </h1>
             <p className="text-very-dark-gray max-w-lg text-sm my-6 lg:my-4">
               {renderHeroText()}
             </p>

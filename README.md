@@ -10,17 +10,14 @@
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
 
+## Overview
 
-
-
-
+This is a room homepage project challenged by frontendmentor.io
+It is an intermediate level challenge
 
 
 
