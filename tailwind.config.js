@@ -2,6 +2,12 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
+  variants: {
+    // The 'active' variant will be generated in addition to the defaults
+    extend: {
+      backgroundColor: ['group-hover']
+    }
+  },
   theme: {
     extend: {
       colors:{
