@@ -156,9 +156,9 @@ function App() {
         <img src={imgAboutDark} alt="background img" className="xl:w-[31%]" />
         <div className="flex items-center justify-center py-24 px-12 xl:p-20">
           <div className="flex flex-col">
-            <h3 className=" mb-2 text-base font-semibold ">
+            <h2 className=" mb-2 text-base font-semibold ">
               About our furniture
-            </h3>
+            </h2>
             <p className="text-very-dark-gray text-sm max-w-xl">
               Our multifunctional collection blends design and function to suit
               your individual taste. Make each room unique, or pick a cohesive
