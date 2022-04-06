@@ -135,7 +135,7 @@ function App() {
               {renderHeroText()}
             </p>
             <div className="inline-block group">
-              <a href="#" className="spacing-super-wide inline-block mr-8 group-hover:opacity-75">
+              <a href="#" className="spacing-super-wide inline-block mr-8 capitalize group-hover:opacity-75">
                 Shop Now
               </a>
               <img src={arrow} alt="arrow" className="h-5 selection:hidden w-20 inline-block group-hover:opacity-75 group-hover:translate-x-6 duration-500 self-start ease-out"></img>
@@ -156,7 +156,7 @@ function App() {
         <img src={imgAboutDark} alt="background img" className="xl:w-[31%]" />
         <div className="flex items-center justify-center py-24 px-12 xl:p-20">
           <div className="flex flex-col">
-            <h2 className=" mb-2 text-base font-semibold ">
+            <h2 className=" mb-2 text-base font-semibold tracking-widest">
               About our furniture
             </h2>
             <p className="text-very-dark-gray text-sm max-w-xl">
