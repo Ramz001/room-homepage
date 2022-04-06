@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import logo from './images/logo.svg';
 import './index.css';
 import arrow from './images/icon-arrow.svg';
@@ -11,6 +11,15 @@ import hamburger from './images/icon-hamburger.svg';
 
 function App() {
   const [slide, setSlide] = useState(1);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleAngleRight();
+    }, 5000);
+    return () => clearInterval(interval);
+
+  }, [slide]);
 
   function renderHeroHeader(){
     if(slide === 1 ){
@@ -54,31 +63,36 @@ function App() {
     }
   }
 
+  function handleNavbar(){
+   setIsOpen(!isOpen)
+  }
 
   return (
     <main className='font-main'>
-      <section className='flex md:h-[40%] md:flex-row flex-col'>
-        <div className='relative w-full lg:w-[55%] h-full'>
+      <section className='flex h-[40%] xl:flex-row flex-col transition-all duration-1000'>
+        <div className='relative w-full xl:w-[55%] h-full'>
             <img src={require(`./images/desktop-image-hero-${slide}.jpg`)} className="w-full"></img>
-            <img src={hamburger} alt="icon" className='absolute top-10 left-10 md:hidden'/>
-            <nav className='hidden md:flex md:absolute top-10 left-10 text-white gap-4 '>
-            <img src={logo} className="h-6 w-20 mr-8" alt="logo"></img>
-              <a href="#">Home</a>
-              <a href="#">Shop</a>
-              <a href="#">About</a>
-              <a href="#">Contact</a>
-            </nav>
+            <img src={hamburger} onClick={handleNavbar} alt="icon" className='absolute top-10 left-10 lg:hidden'/>
+            <div className='md:absolute top-10  left-10'>
+              <img src={logo} className="h-6 w-20 mr-8 left-[50%]" alt="logo"></img>
+              <nav className={`flex p-16 lg:p-0 left-0 right-0 top-0 z-10 bg-white lg:bg-transparent lg:text-white gap-8 ${isOpen ? 'block' : 'hidden'}`} >
+                <a href="#">Home</a>
+                <a href="#">Shop</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+              </nav>
+            </div>
         </div>
-        <div className='lg:w-[45%] w-full flex  justify-center relative md:m-0 p-20'>
-          <div className='flex flex-col  justify-center'>
-            <h2 className='text-4xl max-w-lg font-semibold'>{renderHeroHeader()}</h2>
-            <p className='text-very-dark-gray max-w-lg text-sm my-5'>{renderHeroText()}</p>
-            <div className='inline-block group '>             
+        <div className='xl:w-[45%] w-full flex justify-center relative md:m-0 py-24 px-8 xl:p-20'>
+          <div className='flex flex-col justify-center'>
+            <h2 className='text-3xl lg:text-4xl max-w-lg font-semibold'>{renderHeroHeader()}</h2>
+            <p className='text-very-dark-gray max-w-lg text-sm my-6 lg:my-4'>{renderHeroText()}</p>
+            <div className='inline-block group'>             
               <a href='#' className='spacing-super-wide inline-block mr-8 group-hover:opacity-75'>Shop Now</a>
-              <img src={arrow} alt="arrow" className='h-5 selection:hidden w-20 inline-block group-hover:opacity-75  group-hover:translate-x-6 duration-500 self-start ease-out'></img>
+              <img src={arrow} alt="arrow" className='h-5 selection:hidden w-20 inline-block group-hover:opacity-75 group-hover:translate-x-6 duration-500 self-start ease-out'></img>
             </div>
           </div>
-          <div className='flex justify-start items-end absolute bottom-0 left-0'>
+          <div className='flex justify-start items-end absolute right-0 -top-[5.5rem] xl:bottom-0 xl:left-0'>
             <div onClick={handleAngleLeft} className='bg-black w-16 h-16 selection:hidden flex items-center justify-center hover:opacity-80'>
               <img src={angleLeft} alt="angle left icon" className=''/>
             </div>
@@ -86,12 +100,11 @@ function App() {
               <img src={angleRight} alt="angle right icon" className=''/>
             </div>
           </div>
-
         </div>
       </section>
-      <section className='flex md:flex-row flex-col'>
-        <img src={imgAboutDark} alt="background img" className='md:w-[33%]'/>
-        <div className='flex items-center justify-center md:p-8  p-20'>
+      <section className='flex xl:flex-row flex-col'>
+        <img src={imgAboutDark} alt="background img" className='xl:w-[33%]'/>
+        <div className='flex items-center justify-center py-24 px-12 xl:p-20'>
           <div className='flex flex-col'>
             <h3 className=' mb-2 text-base font-semibold '>About our furniture</h3>
             <p className='text-very-dark-gray text-sm max-w-xl'>
@@ -102,40 +115,10 @@ function App() {
             </p>
           </div>
         </div>
-        <img src={imgAboutLight} alt="background img" className='md:w-33%'/>
+        <img src={imgAboutLight} alt="background img" className='xl:w-33%'/>
       </section>
     </main>
   );
 }
-
-// Home
-// Shop
-// About
-// Contact
-
-// Discover innovative ways to decorate
-
-// We provide unmatched quality, comfort, and style for property owners across the country. 
-// Our experts combine form and function in bringing your vision to life. Create a room in your 
-// own style with our collection and make your property a reflection of you and what you love.
-
-// Shop now
-
-// We are available all across the globe
-
-// With stores all over the world, it's easy for you to find furniture for your home or place of business. 
-// Locally, we’re in most major cities throughout the country. Find the branch nearest you using our 
-// store locator. Any questions? Don't hesitate to contact us today.
-
-// Shop now
-
-// Manufactured with the best materials
-
-
-
-// Shop now
-
-// About our furniture
-
 
 export default App;
