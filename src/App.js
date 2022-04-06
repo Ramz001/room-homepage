@@ -153,8 +153,8 @@ function App() {
       </section>
     
       <section className="flex xl:flex-row flex-col">
-        <img src={imgAboutDark} alt="background img" className="xl:w-1/3" />
-        <div className="flex items-center justify-center py-24 px-12 xl:p-20 xl:w-1/3">
+        <img src={imgAboutDark} alt="background img" className="xl:w-[31%]" />
+        <div className="flex items-center justify-center py-24 px-12 xl:p-20">
           <div className="flex flex-col">
             <h3 className=" mb-2 text-base font-semibold ">
               About our furniture
@@ -169,7 +169,7 @@ function App() {
             </p>
           </div>
         </div>
-        <img src={imgAboutLight} alt="background img" className="xl:w-1/3" />
+        <img src={imgAboutLight} alt="background img" className="xl:w-[31%]" />
       </section>
     </main>
   );
