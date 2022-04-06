@@ -91,16 +91,16 @@ function App() {
 
   return (
     <main className="font-main">
-          <section className="flex h-[40%] xl:flex-row flex-col transition-all duration-1000">
+      <section className="flex h-[40%] xl:flex-row flex-col transition-all ">
         <div className="relative w-full xl:w-[55%] h-full">
           <img src={require(`./images/${images}-image-hero-${slide}.jpg`)} alt="slide-img" className="w-full"></img>
             { isMediumWidth &&
-              <nav className="flex absolute top-10 left-10 text-white gap-8 ">
-              <img src={logo} className="mr-8" alt="logo"></img>
-              <a href="#" className='hover:border-b pb-1 border-white transition-all'>Home</a>
-              <a href="#" className='hover:border-b pb-1 border-white transition-all'>Shop</a>
-              <a href="#" className='hover:border-b pb-1 border-white transition-all'>About</a>
-              <a href="#" className='hover:border-b pb-1 border-white transition-all'>Contact</a>
+              <nav className="flex absolute top-10 left-10 text-white gap-8 h-4">
+              <img src={logo} className="mr-8 " alt="logo"></img>
+              <a href="#" className='hover:border-b pb-5 text-sm border-white transition-all'>Home</a>
+              <a href="#" className='hover:border-b pb-5 text-sm border-white transition-all'>Shop</a>
+              <a href="#" className='hover:border-b pb-5 text-sm border-white transition-all'>About</a>
+              <a href="#" className='hover:border-b pb-5 text-sm border-white transition-all'>Contact</a>
             </nav>}
             { !isMediumWidth &&
               
@@ -125,7 +125,7 @@ function App() {
                 </div>
               </nav>
             }
-      </div>
+        </div>
         <div className="xl:w-[45%] w-full flex justify-center relative md:m-0 py-24 px-8 xl:p-20">
           <div className="flex flex-col justify-center">
             <h1 className="text-3xl lg:text-4xl max-w-lg font-semibold">
