@@ -134,8 +134,8 @@ function App() {
             <p className="text-very-dark-gray max-w-lg text-sm my-6 lg:my-4">
               {renderHeroText()}
             </p>
-            <div className="group cursor-pointer">
-              <a href="#" className="spacing-super-wide inline-block mr-8 capitalize group-hover:opacity-75">
+            <div className="group">
+              <a href="#" className="spacing-super-wide inline-block mr-8 capitalize group-hover:opacity-75 cursor-pointer">
                 Shop Now
               </a>
               <img src={arrow} alt="arrow" className="h-5 selection:hidden w-20 inline-block group-hover:opacity-75 group-hover:translate-x-6 duration-500 self-start ease-out"></img>
