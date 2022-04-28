@@ -20,7 +20,6 @@ function App() {
       handleAngleRight();
     }, 20000);
     return () => clearInterval(interval);
-
   }, [slide]);
 
   useEffect(()=>{
@@ -135,7 +134,7 @@ function App() {
               {renderHeroText()}
             </p>
             <div className="group">
-              <a href="#" className="spacing-super-wide inline-block mr-8 capitalize group-hover:opacity-75 cursor-pointer">
+              <a href="#" className="spacing-super-wide inline-block mr-8 capitalize group-hover:opacity-75 cursor-pointer z-40 relative">
                 Shop Now
               </a>
               <img src={arrow} alt="arrow" className="h-5 selection:hidden w-20 inline-block group-hover:opacity-75 group-hover:translate-x-6 duration-500 self-start ease-out"></img>
